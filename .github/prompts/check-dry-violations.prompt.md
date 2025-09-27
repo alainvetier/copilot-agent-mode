@@ -1,7 +1,7 @@
 ---
 mode: 'agent'
 description: 'Check DRY'
-tools: ['search', 'runCommands', 'runTasks', 'usages', 'problems', 'changes', 'testFailure', 'fetch', 'githubRepo', 'search', 'playwright']
+tools: ['search', 'runCommands', 'runTasks', 'usages', 'problems', 'changes', 'testFailure', 'fetch', 'githubRepo','playwright']
 ---
 
 # 🔍 DRY Violation Analysis & Refactoring Recommendations
