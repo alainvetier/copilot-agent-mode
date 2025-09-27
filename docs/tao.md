@@ -1,10 +1,10 @@
-# TypeScript API Observability Framework (TAO)
+# Python API Observability Framework (TAO)
 
-TAO is our lightweight, powerful observability framework designed specifically for TypeScript-based APIs. It provides seamless integration of metrics, traces, and logs with minimal configuration.
+TAO is our lightweight, powerful observability framework designed specifically for Python-based APIs. It provides seamless integration of metrics, traces, and logs with minimal configuration.
 
 ## Features
 
-- 🔄 Auto-instrumentation for Express.js routes
+- 🔄 Auto-instrumentation for FastAPI routes
 - 📊 Built-in metrics collection (response times, error rates, request counts)
 - 🔍 Distributed tracing with OpenTelemetry compatibility
 - 📝 Structured logging with context correlation
@@ -13,89 +13,91 @@ TAO is our lightweight, powerful observability framework designed specifically f
 
 ## Quick Start
 
-```typescript
-import { initTAO, observe } from '@tao/core';
-import express from 'express';
+```python
+from tao.core import init_tao, observe
+from fastapi import FastAPI
 
-// Initialize TAO with default settings
-initTAO({
-  serviceName: 'my-api',
-  environment: 'production'
-});
+# Initialize TAO with default settings
+init_tao({
+    "service_name": "my-api",
+    "environment": "production"
+})
 
-const app = express();
+app = FastAPI()
 
-// Automatically instrument all routes
-app.use(observe());
+# Automatically instrument all routes
+app.add_middleware(observe())
 ```
 
 ## Decorators
 
 TAO provides decorators for fine-grained observability:
 
-```typescript
-import { Measure, Trace, Log } from '@tao/core';
+```python
+from tao.core import measure, trace, log
+from typing import Dict, Any
 
-class UserService {
-  @Measure('user.creation.time')
-  @Trace('user-creation')
-  @Log('debug')
-  async createUser(userData: UserData): Promise<User> {
-    // Your implementation
-  }
-}
+class UserService:
+    @measure('user.creation.time')
+    @trace('user-creation')
+    @log('debug')
+    async def create_user(self, user_data: Dict[str, Any]) -> Dict[str, Any]:
+        # Your implementation
+        pass
 ```
 
 ## Custom Metrics
 
-```typescript
-import { MetricRegistry } from '@tao/core';
+```python
+from tao.core import MetricRegistry
 
-// Create a custom counter
-const requestCounter = MetricRegistry.counter({
-  name: 'api_requests_total',
-  labels: ['endpoint', 'status']
-});
+# Create a custom counter
+request_counter = MetricRegistry.counter(
+    name='api_requests_total',
+    labels=['endpoint', 'status']
+)
 
-// Increment the counter
-requestCounter.inc({ endpoint: '/api/users', status: '200' });
+# Increment the counter
+request_counter.inc({'endpoint': '/api/users', 'status': '200'})
 ```
 
 ## Trace Context
 
 TAO automatically propagates trace context across service boundaries using W3C Trace Context headers:
 
-```typescript
-import { getTraceContext, withContext } from '@tao/core';
+```python
+from tao.core import get_trace_context, with_context
+import httpx
 
-async function makeDownstreamCall() {
-  const context = getTraceContext();
-  
-  return await fetch('http://other-service/api', {
-    headers: withContext(context)
-  });
-}
+async def make_downstream_call():
+    context = get_trace_context()
+    
+    async with httpx.AsyncClient() as client:
+        return await client.get(
+            'http://other-service/api',
+            headers=with_context(context)
+        )
 ```
 
 ## Configuration
 
-```typescript
-initTAO({
-  serviceName: 'my-api',
-  environment: 'production',
-  metrics: {
-    backend: 'prometheus',
-    endpoint: '/metrics'
-  },
-  tracing: {
-    backend: 'jaeger',
-    samplingRate: 0.1
-  },
-  logging: {
-    level: 'info',
-    format: 'json'
-  }
-});
+```python
+init_tao({
+    "service_name": "my-api",
+    "environment": "production",
+    "metrics": {
+        "backend": "prometheus",
+        "endpoint": "/metrics"
+    },
+    "tracing": {
+        "backend": "jaeger",
+        "sampling_rate": 0.1
+    },
+    "logging": {
+        "level": "info",
+        "format": "json"
+    }
+})
 ```
 
 ## Best Practices

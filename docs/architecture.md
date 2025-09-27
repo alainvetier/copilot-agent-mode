@@ -1,17 +1,18 @@
 # OctoCAT Supply Chain Management System Architecture
 
-This site is a demo application written in TypeScript. The entire app was created originally from an [ERD diagram](../api/ERD.png) and natural language prompts using Copilot. The frontend was created in the same way, using some of the design ideas in [the design folder](./design/).
+This site is a demo application with a Python FastAPI backend and TypeScript React frontend. The entire app was created originally from an ERD diagram and natural language prompts using Copilot. The frontend was created in the same way, using some of the design ideas in [the design folder](./design/).
 
 The hero image and product images were created by prompting ChatGPT!
 
 ## Architecture Overview
 
-The system is a modern supply chain management application built using TypeScript, comprising a backend REST API and a React frontend. It's designed to demonstrate Copilot capabilities using a fairly typical architecture with a little complexity, but not enough to derail demos!
+The system is a modern supply chain management application comprising a Python FastAPI backend REST API and a TypeScript React frontend. It's designed to demonstrate Copilot capabilities using a fairly typical architecture with a little complexity, but not enough to derail demos!
 
 ### Backend Architecture
-- Express.js API with RESTful endpoints for all entities
-- Swagger/OpenAPI documentation integration
-- Entity models with proper relationships following an ERD diagram
+- FastAPI with Python 3.12+ providing RESTful endpoints for all entities
+- Built-in OpenAPI/Swagger documentation integration (accessible at `/api-docs`)
+- Pydantic data models with proper relationships following an ERD diagram
+- Uvicorn ASGI server for high-performance async operations
 
 ### Frontend Architecture
 - React 18+ with TypeScript
@@ -46,10 +47,11 @@ flowchart TD
     end
     
     subgraph "Backend"
-        B[Express.js API] --> BR[REST Routes]
-        BR --> BM[Entity Models]
-        B --> BS[Swagger/OpenAPI]
+        B[FastAPI] --> BR[REST Routes]
+        BR --> BM[Pydantic Models]
+        B --> BS[OpenAPI/Swagger]
         B --> BO[TAO Observability]
+        B --> BU[Uvicorn ASGI Server]
     end
     
     F <--REST API--> B

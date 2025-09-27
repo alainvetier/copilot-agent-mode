@@ -4,7 +4,7 @@
 
 This repo is hosted in GitHub:
 - owner: alainvetier
-- repo: copilot_agent_mode
+- repo: copilot-agent-mode
 
 ## Architecture
 

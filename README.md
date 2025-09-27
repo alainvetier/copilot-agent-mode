@@ -18,8 +18,9 @@ This isn't just another demo app - it's a carefully crafted showcase that demons
 
 ## 🏗️ Architecture
 
-The application is built using modern TypeScript with a clean separation of concerns:
+The application is built using a modern Python FastAPI backend and TypeScript React frontend with a clean separation of concerns:
 
+### Data Model (ERD)
 ```mermaid
 erDiagram
     Headquarters ||--o{ Branch: has
@@ -29,6 +30,27 @@ erDiagram
     OrderDetail }|--|| Product: references
     Delivery ||--o{ OrderDetailDelivery: includes
     Supplier ||--o{ Delivery: provides
+```
+
+### Component Architecture
+```mermaid
+flowchart TD
+    subgraph "Frontend"
+        F[React App] --> FC[React Components]
+        FC --> FT[TypeScript]
+        FC --> FCSS[Tailwind CSS]
+        F --> FV[Vite Build Tool]
+    end
+    
+    subgraph "Backend"
+        B[FastAPI] --> BR[REST Routes]
+        BR --> BM[Pydantic Models]
+        B --> BS[OpenAPI/Swagger]
+        B --> BO[TAO Observability]
+        B --> BU[Uvicorn ASGI Server]
+    end
+    
+    F <--REST API--> B
 ```
 
 ### Tech Stack
@@ -89,13 +111,6 @@ To showcase extended capabilities:
 
 - [Detailed Architecture](./docs/architecture.md)
 - [Complete Demo Script](./docs/demo-script.md)
-
-## 🎓 Pro Tips for Solution Engineers
-
-- Practice the demos before customer presentations
-- Remember Copilot is non-deterministic - be ready to adapt
-- Mix and match demo scenarios based on your audience
-- Keep your GitHub PAT handy for MCP demos
 
 ---
 
