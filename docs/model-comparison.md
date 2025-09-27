@@ -1,48 +1,67 @@
-# Model Comparison Table
+# GitHub Copilot Model Comparison Table
 
-This comparison was genereated using the custom prompt file [model-compare.prompt.md](../.github/prompts/model-compare.prompt.md) and using `Gemini 2.5 Pro`. You can generatae you own using `/model-compare` in the Copilot Chat.
+This comparison was generated using the custom prompt file [model-compare.prompt.md](../.github/prompts/model-compare.prompt.md) and reflects the latest information from GitHub's official documentation.
 
 > [!NOTE]
-> As the model world is moving quickly, the information in this predefined document might be outdated. Use the `/model-compare` command as described above to get a file with the latest information.
+> As the AI model landscape evolves rapidly, this information may become outdated. Refer to the [official GitHub documentation](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task) for the most current details.
 
-## 1. Balance Between Performance and Cost
+## 1. General-Purpose Coding and Writing
 
-**Pros:** Good all-rounders, versatile, cost-effective options.
+**Pros:** 🎯 Versatile, 🚀 fast, 💡 accurate, balanced quality/speed/cost.
 
-| Model             | Use Case / Differentiator               | GA/Preview | Special Abilities      | Multiplier         |
-| ----------------- | --------------------------------------- | ---------- | ---------------------- | ------------------ |
-| GPT-4.1           | Default for common dev, broad knowledge | ✅          | Multilingual, 👓 Visual | 0 (paid), 1 (free) |
-| Claude 3.7 Sonnet | Advanced dev, architectural planning    | ✅          | -                      | 1                  |
+*Use for: Common development tasks, writing/reviewing functions, generating documentation, explaining errors, working in non-English programming environments.*
 
-## 2. Fast, Low-Cost Support for Basic Tasks
+| Model | Use Case / Differentiator | GA/Preview | Special Abilities | Multiplier |
+|-------|---------------------------|------------|-------------------|------------|
+| GPT-4.1 | 🏆 Reliable default for most coding tasks | ✅ | 🔧 Agent mode, 👓 Vision | 0x (paid), 1x (free) |
+| GPT-5-Codex | 🎯 Higher-quality code for complex engineering | 🚧 | 🔧 Agent mode | 1x |
+| Claude Sonnet 3.7 | 📝 Clear, structured output with consistent style | ✅ | 🔧 Agent mode, 👓 Vision | 1.25x |
+| Gemini 2.0 Flash | ⚡ Fast and cost-effective for quick tasks | ✅ | 👓 Vision | 0.25x 💸 |
+| o4-mini | 🏃‍♂️ Optimized for speed and cost efficiency | ✅ | Lower latency | 0.25x 💸 |
+| Grok Code Fast 1 | ⚡ Specialized for coding tasks | 🚧 | 🔧 Agent mode | 0.33x |
 
-**Pros:** Speed 🚀, low latency, cost savings 💸, simple logic, quick feedback.
+## 2. Fast Help with Simple or Repetitive Tasks
 
-| Model             | Use Case / Differentiator                 | GA/Preview | Special Abilities | Multiplier |
-| ----------------- | ----------------------------------------- | ---------- | ----------------- | ---------- |
-| o4-mini           | Fastest, most efficient for basic tasks   | 🚧          | -                 | -          |
-| Claude 3.5 Sonnet | Everyday coding, documentation, low cost  | ✅          | -                 | 1          |
-| o3-mini           | Fast, concise for simple/repetitive tasks | ✅          | -                 | 0.33       |
+**Pros:** 🚀 Speed, ⚡ low latency, 💸 cost savings, quick feedback.
 
-## 3. Deep Reasoning & Complex Coding Challenges
+*Use for: Small functions/utility code, quick syntax questions, prototyping, fast feedback on simple edits.*
 
-**Pros:** Advanced logic, multi-step problem solving, high-quality code generation.
+| Model | Use Case / Differentiator | GA/Preview | Special Abilities | Multiplier |
+|-------|---------------------------|------------|-------------------|------------|
+| o4-mini | 🏃‍♂️ Quick and cost-effective for repetitive tasks | ✅ | Lower latency | 0.25x 💸 |
+| Claude Sonnet 3.5 | ⚖️ Balances fast responses with quality output | ✅ | 🔧 Agent mode, 👓 Vision | 1x |
+| Gemini 2.0 Flash | ⚡ Extremely low latency, multimodal support | ✅ | 👓 Vision | 0.25x 💸 |
 
-| Model          | Use Case / Differentiator                    | GA/Preview | Special Abilities | Multiplier |
-| -------------- | -------------------------------------------- | ---------- | ----------------- | ---------- |
-| GPT-4.5        | Multi-step logic, nuanced, high-quality code | ✅          | -                 | 50 💰       |
-| o3             | Deepest reasoning, debugging, complex tasks  | 🚧          | -                 | -          |
-| o1             | Deep logic, debugging, root cause analysis   | ✅          | -                 | 10 💰       |
-| Gemini 2.5 Pro | Advanced algorithms, long-context research   | 🚧          | -                 | 1          |
+## 3. Deep Reasoning and Debugging
 
-## 4. Multimodal Inputs & Real-Time Performance
+**Pros:** 🧠 Advanced reasoning, 🔍 debugging, 🏗️ architecture decisions, multi-step problem solving.
 
-**Pros:** Visual input 👓, real-time interaction, UI/diagram analysis.
+*Use for: Complex refactoring, debugging multi-file issues, architectural planning, performance analysis, weighing trade-offs.*
 
-| Model            | Use Case / Differentiator                     | GA/Preview | Special Abilities      | Multiplier |
-| ---------------- | --------------------------------------------- | ---------- | ---------------------- | ---------- |
-| GPT-4o           | Lightweight dev, conversational, visual input | ✅          | 👓 Visual, Multilingual | 1          |
-| Gemini 2.0 Flash | UI inspection, diagram analysis, visual bugs  | ✅          | 👓 Visual               | 0.25 💸     |
+| Model | Use Case / Differentiator | GA/Preview | Special Abilities | Multiplier |
+|-------|---------------------------|------------|-------------------|------------|
+| GPT-5 mini | 🧠 Deep reasoning with faster responses than GPT-5 | 🚧 | Reasoning, 👓 Vision | 1x |
+| GPT-5 | 🎯 Complex reasoning and technical decision-making | � | Reasoning | 1x |
+| o3 | 🏗️ Algorithm design, system debugging, architecture | 🚧 | Reasoning | 10x 💰 |
+| Claude Sonnet 3.7 | 🔄 Hybrid reasoning adapting to fast/deep tasks | ✅ | � Agent mode, 👓 Vision | 1.25x |
+| Claude Sonnet 4 | ⚡ Improved reliability and smarter reasoning | ✅ | 🔧 Agent mode, 👓 Vision | 1x |
+| Claude Opus 4.1 | 🏆 Anthropic's most powerful model | ✅ | Reasoning, 👓 Vision | 10x 💰 |
+| Claude Opus 4 | 🎯 Strategy, debugging, multi-layered logic | ✅ | Reasoning, 👓 Vision | 10x 💰 |
+| Gemini 2.5 Pro | 🔬 Advanced reasoning, long contexts, technical analysis | ✅ | Reasoning, 👓 Vision | 1x |
+
+## 4. Working with Visuals (Diagrams, Screenshots)
+
+**Pros:** 👓 Visual reasoning, �️ multimodal input, UI/diagram analysis, front-end debugging.
+
+*Use for: Questions about diagrams/screenshots/UI, visual feedback on drafts, understanding front-end behavior from visual context.*
+
+| Model | Use Case / Differentiator | GA/Preview | Special Abilities | Multiplier |
+|-------|---------------------------|------------|-------------------|------------|
+| GPT-4.1 | 🏆 Reliable default with multimodal support | ✅ | 🔧 Agent mode, 👓 Vision | 0x (paid), 1x (free) |
+| Claude Opus 4 | 🧠 Powerful model with visual capabilities | ✅ | Reasoning, 👓 Vision | 10x 💰 |
+| Claude Sonnet 4 | ⚡ Reliable completions with visual reasoning | ✅ | 🔧 Agent mode, 👓 Vision | 1x |
+| Gemini 2.0 Flash | ⚡ Fast multimodal for real-time visual feedback | ✅ | 👓 Vision | 0.25x 💸 |
+| Gemini 2.5 Pro | 🔬 Deep reasoning for complex visual analysis | ✅ | Reasoning, � Vision | 1x |
 
 ---
 
@@ -57,53 +76,70 @@ This comparison was genereated using the custom prompt file [model-compare.promp
 
 ```mermaid
 graph LR
-    %% Performance Category
-    subgraph "Performance (Faster - Lower Cost/Complexity)"
-      o4m["o4-mini<br/>🚀💸<br/>(Preview)"]
-      g2f["Gemini 2.0 Flash<br/>🚀💸👓<br/>(GA)"]
-      o3m["o3-mini<br/>🚀💸<br/>(GA)"]
-      c35s["Claude 3.5 Sonnet<br/>🚀<br/>(GA)"]
+    %% Performance Category (Low Cost/Fast)
+    subgraph "🚀 Performance (Speed & Cost Optimized)"
+      direction TB
+      o4m["o4-mini<br/>🚀💸 (0.25x)<br/>✅ GA"]
+      g2f["Gemini 2.0 Flash<br/>⚡ (0.25x)<br/>✅ GA"]
+      grok["Grok Code Fast 1<br/>⚡� (0.33x)<br/>🚧 Preview"]
       o4m --> g2f
-      g2f --> o3m
-      o3m --> c35s
+      g2f --> grok
     end
 
     %% Balanced Category
-    subgraph "Balanced"
-    direction TB
-    g41["GPT-4.1<br/>✅<br/>(Base Model)"]
-    g4o["GPT-4o<br/>👓<br/>(GA)"]
-    g41 --> g4o
+    subgraph "⚖️ Balanced (General Purpose)"
+      direction TB
+      g41["GPT-4.1<br/>🏆🔧👓 (0x/1x)<br/>✅ GA"]
+      c35s["Claude 3.5 Sonnet<br/>🔧👓 (1x)<br/>✅ GA"]
+      c4s["Claude Sonnet 4<br/>⚡🔧👓 (1x)<br/>✅ GA"]
+      g5c["GPT-5-Codex<br/>🎯� (1x)<br/>🚧 Preview"]
+      g25p["Gemini 2.5 Pro<br/>🔬👓 (1x)<br/>✅ GA"]
+      g41 --> c35s
+      c35s --> c4s
+      c4s --> g5c
+      g5c --> g25p
     end
 
-    %% Quality & Cost Category
-    subgraph "Quality & Cost (Higher - Higher Cost/Complexity)"
-    direction TB
-    c37s["Claude 3.7 Sonnet<br/>✅<br/>(GA)"]
-    g25p["Gemini 2.5 Pro<br/>🚧<br/>(Preview)"]
-    o1["o1<br/>💰<br/>(GA)"]
-    o3["o3<br/>🚧💰<br/>(Preview)"]
-    g45["GPT-4.5<br/>✅💰💰<br/>(GA)"]
-    c37s --> g25p
-    g25p --> o1
-    o1 --> o3
-    o3 --> g45
+    %% Quality & Cost Category (High Performance/Expensive)
+    subgraph "🧠 Deep Reasoning (Premium Models)"
+      direction TB
+      c37s["Claude 3.7 Sonnet<br/>🔄🔧👓 (1.25x)<br/>✅ GA"]
+      g5m["GPT-5 mini<br/>🧠� (1x)<br/>🚧 Preview"]
+      g5["GPT-5<br/>🎯🧠 (1x)<br/>🚧 Preview"]
+      o3["o3<br/>🏗️ (10x)<br/>🚧 Preview"]
+      c4o["Claude Opus 4<br/>🎯💰 (10x)<br/>✅ GA"]
+      c41o["Claude Opus 4.1<br/>🏆💰 (10x)<br/>✅ GA"]
+      c37s --> g5m
+      g5m --> g5
+      g5 --> o3
+      o3 --> c4o
+      c4o --> c41o
     end
 
-    %% Horizontal connections between categories
-    c35s -.-> g41
-    g4o -.-> c37s
+    %% Cross-category connections
+    grok -.-> g41
+    g25p -.-> c37s
 
-    %% Styling
-    style o4m fill:#f9f,stroke:#333,stroke-width:2px,color:#000
-    style g2f fill:#f9f,stroke:#333,stroke-width:2px,color:#000
-    style o3m fill:#f9f,stroke:#333,stroke-width:2px,color:#000
-    style c35s fill:#f9f,stroke:#333,stroke-width:2px,color:#000
-    style g41 fill:#9cf,stroke:#333,stroke-width:2px,color:#000
-    style g4o fill:#9cf,stroke:#333,stroke-width:2px,color:#000
-    style c37s fill:#9fc,stroke:#333,stroke-width:2px,color:#000
-    style g25p fill:#9fc,stroke:#333,stroke-width:2px,color:#000
-    style o1 fill:#9fc,stroke:#333,stroke-width:2px,color:#000
-    style o3 fill:#9fc,stroke:#333,stroke-width:2px,color:#000
-    style g45 fill:#9fc,stroke:#333,stroke-width:2px,color:#000
+    %% Styling with high contrast colors for readability
+    style o4m fill:#e1f5fe,stroke:#01579b,stroke-width:3px,color:#000
+    style g2f fill:#e1f5fe,stroke:#01579b,stroke-width:3px,color:#000
+    style grok fill:#e1f5fe,stroke:#01579b,stroke-width:3px,color:#000
+    
+    style g41 fill:#f3e5f5,stroke:#4a148c,stroke-width:3px,color:#000
+    style c35s fill:#f3e5f5,stroke:#4a148c,stroke-width:3px,color:#000
+    style c4s fill:#f3e5f5,stroke:#4a148c,stroke-width:3px,color:#000
+    style g5c fill:#f3e5f5,stroke:#4a148c,stroke-width:3px,color:#000
+    style g25p fill:#f3e5f5,stroke:#4a148c,stroke-width:3px,color:#000
+    
+    style c37s fill:#fff3e0,stroke:#e65100,stroke-width:3px,color:#000
+    style g5m fill:#fff3e0,stroke:#e65100,stroke-width:3px,color:#000
+    style g5 fill:#fff3e0,stroke:#e65100,stroke-width:3px,color:#000
+    style o3 fill:#ffebee,stroke:#b71c1c,stroke-width:3px,color:#000
+    style c4o fill:#ffebee,stroke:#b71c1c,stroke-width:3px,color:#000
+    style c41o fill:#ffebee,stroke:#b71c1c,stroke-width:3px,color:#000
 ```
+
+### Legend
+- **🚀 Speed** | **💸 Cost-effective** | **🧠 Deep reasoning** | **👓 Vision support** | **🔧 Agent mode** | **💰 Premium pricing**
+- **✅ GA (Generally Available)** | **🚧 Preview** 
+- **Multipliers:** 0x = Free on paid plans | 0.25x-0.33x = Very cost-effective | 1x-1.25x = Standard | 10x = Premium

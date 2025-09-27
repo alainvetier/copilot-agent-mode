@@ -3,8 +3,8 @@
 ## GitHub Repo Information
 
 This repo is hosted in GitHub:
-- owner: msft-common-demos
-- repo: copilot_agent_mode-ubiquitous-octo-barnacle
+- owner: alainvetier
+- repo: copilot_agent_mode
 
 ## Architecture
 
