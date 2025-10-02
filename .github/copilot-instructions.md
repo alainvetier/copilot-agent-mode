@@ -14,14 +14,40 @@ The complete architecture is described in the [Architecture Document](../docs/ar
 
 Refer to [build instructions](../docs/build.md) for detailed build instructions.
 
-Every time you change the code, make sure that the code compiles by running:
+## Backend (API)
+
+The backend is implemented in **Python 3.12+** using **FastAPI** and **Uvicorn**.
+
+To build and run the API:
 
 ```bash
+cd api
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+```
+
+To run the unit tests for the API:
+
+```bash
+cd api
+pytest
+```
+
+## Frontend
+
+The frontend is implemented in **React 18+**, **TypeScript**, and **Vite**.
+
+To build the frontend:
+
+```bash
+cd frontend
+npm install
 npm run build
 ```
 
-To run the unit tests for the API, run:
+To run the frontend locally:
 
 ```bash
-npm run test:api
+cd frontend
+npm run dev
 ```
