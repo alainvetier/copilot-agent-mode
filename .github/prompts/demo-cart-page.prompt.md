@@ -1,7 +1,7 @@
 ---
-mode: 'agent'
+agent: 'agent'
 description: 'Complete Demo: Add Cart Page and Icon with Vision and Agent Mode'
-tools: ['changes', 'codebase', 'editFiles', 'fetch', 'findTestFiles', 'githubRepo', 'openSimpleBrowser', 'problems', 'runCommands', 'runTasks', 'search', 'terminalLastCommand', 'testFailure', 'usages', 'playwright', 'github-remote']
+tools: ['search/changes', 'search/codebase', 'edit/editFiles', 'web/fetch','web/githubRepo', 'vscode/openSimpleBrowser', 'read/problems', 'execute/getTerminalOutput', 'execute/runInTerminal', 'read/terminalLastCommand', 'read/terminalSelection', 'execute/createAndRunTask', 'execute/getTaskOutput', 'execute/runTask', 'search', 'read/terminalLastCommand', 'execute/testFailure', 'search/usages', 'playwright/*', 'github-remote/*']
 ---
 
 # Demo: Cart Page and Icon Implementation

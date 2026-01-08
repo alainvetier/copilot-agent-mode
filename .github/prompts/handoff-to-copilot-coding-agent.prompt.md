@@ -1,7 +1,7 @@
 ---
-mode: agent
+agent: agent
 description: 'Scans the current chat history, strips noise, writes a concise GitHub Issue for GitHub Copilot Coding Agent'
-tools: ['changes', 'githubRepo', 'problems', 'search', 'usages', 'github-remote','add_issue_comment', 'assign_copilot_to_issue', 'create_issue']
+tools: ['search/changes', 'web/githubRepo', 'read/problems', 'search', 'search/usages', 'github-remote/*','github-remote/add_issue_comment', 'github/add_issue_comment', 'github-remote/assign_copilot_to_issue', 'github/assign_copilot_to_issue', 'github/create_issue']
 ---
 
 <!--

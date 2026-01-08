@@ -1,7 +1,7 @@
 ---
-mode: 'agent'
+agent: 'agent'
 description: 'Use Coding Agent to test multiple paths - in parallel!'
-tools: ['codebase', 'fetch', 'findTestFiles', 'githubRepo', 'openSimpleBrowser', 'problems', 'search', 'searchResults', 'usages', 'add_sub_issue', 'assign_copilot_to_issue', 'create_issue', 'get_issue', 'list_issues', 'list_sub_issues', 'search_issues', 'update_issue', 'github-remote']
+tools: ['search/codebase', 'web/fetch', 'web/githubRepo', 'vscode/openSimpleBrowser', 'read/problems', 'search', 'search/searchResults', 'search/usages', 'github/add_sub_issue', 'github-remote/assign_copilot_to_issue', 'github/assign_copilot_to_issue', 'github/create_issue', 'github/get_issue', 'github-remote/list_issues', 'github/list_issues', 'github/list_sub_issues', 'github-remote/search_issues', 'github/search_issues', 'github/update_issue', 'github-remote/*']
 ---
 
 # Demo: Use Coding Agent to test multiple paths - in parallel!

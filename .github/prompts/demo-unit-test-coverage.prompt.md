@@ -1,7 +1,7 @@
 ---
-mode: 'agent'
+agent: 'agent'
 description: 'Demo: Improve API Test Coverage - Add Unit Tests for Missing Routes.'
-tools: ['changes', 'codebase', 'editFiles', 'fetch', 'findTestFiles', 'githubRepo', 'problems', 'runCommands', 'runTasks', 'search', 'terminalLastCommand', 'testFailure', 'usages', 'playwright', 'github-remote', 'Azure MCP']
+tools: ['search/changes', 'search/codebase', 'edit/editFiles', 'web/fetch', 'web/githubRepo', 'read/problems', 'execute/getTerminalOutput', 'execute/runInTerminal', 'read/terminalLastCommand', 'read/terminalSelection', 'execute/createAndRunTask', 'execute/getTaskOutput', 'execute/runTask', 'search', 'read/terminalLastCommand', 'execute/testFailure', 'search/usages', 'playwright/*', 'github-remote/*', 'azure-mcp/azure']
 ---
 # 🧪 Python API Unit Test Coverage Scenario: Product & Supplier Routes
 
