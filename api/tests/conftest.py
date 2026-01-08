@@ -6,7 +6,7 @@ from app.routes import branch, delivery, headquarters, order, order_detail, orde
 @pytest.fixture(autouse=True)
 def reset_branch_data():
     # Reset branch data before each test
-    branch.branches = branch.branches.copy()
+    branch.branches = list(branch.seed_branches)
     yield
     # Reset after test
     branch.branches = list(branch.seed_branches)
@@ -14,7 +14,7 @@ def reset_branch_data():
 @pytest.fixture(autouse=True)
 def reset_delivery_data():
     # Reset delivery data before each test
-    delivery.deliveries = delivery.deliveries.copy()
+    delivery.deliveries = list(delivery.seed_deliveries)
     yield
     # Reset after test
     delivery.deliveries = list(delivery.seed_deliveries)
@@ -22,7 +22,7 @@ def reset_delivery_data():
 @pytest.fixture(autouse=True)
 def reset_headquarters_data():
     # Reset headquarters data before each test
-    headquarters.headquarters = headquarters.headquarters.copy()
+    headquarters.headquarters = list(headquarters.seed_headquarters)
     yield
     # Reset after test
     headquarters.headquarters = list(headquarters.seed_headquarters)
@@ -30,7 +30,7 @@ def reset_headquarters_data():
 @pytest.fixture(autouse=True)
 def reset_order_data():
     # Reset order data before each test
-    order.orders = order.orders.copy()
+    order.orders = list(order.seed_orders)
     yield
     # Reset after test
     order.orders = list(order.seed_orders)
@@ -38,7 +38,7 @@ def reset_order_data():
 @pytest.fixture(autouse=True)
 def reset_order_detail_data():
     # Reset order detail data before each test
-    order_detail.order_details = order_detail.order_details.copy()
+    order_detail.order_details = list(order_detail.seed_order_details)
     yield
     # Reset after test
     order_detail.order_details = list(order_detail.seed_order_details)
@@ -46,7 +46,7 @@ def reset_order_detail_data():
 @pytest.fixture(autouse=True)
 def reset_order_detail_delivery_data():
     # Reset order detail delivery data before each test
-    order_detail_delivery.order_detail_deliveries = order_detail_delivery.order_detail_deliveries.copy()
+    order_detail_delivery.order_detail_deliveries = list(order_detail_delivery.seed_order_detail_deliveries)
     yield
     # Reset after test
     order_detail_delivery.order_detail_deliveries = list(order_detail_delivery.seed_order_detail_deliveries)
@@ -54,7 +54,7 @@ def reset_order_detail_delivery_data():
 @pytest.fixture(autouse=True)
 def reset_product_data():
     # Reset product data before each test
-    product.products = product.products.copy()
+    product.products = list(product.seed_products)
     yield
     # Reset after test
     product.products = list(product.seed_products)
@@ -62,7 +62,7 @@ def reset_product_data():
 @pytest.fixture(autouse=True)
 def reset_supplier_data():
     # Reset supplier data before each test
-    supplier.suppliers = supplier.suppliers.copy()
+    supplier.suppliers = list(supplier.seed_suppliers)
     yield
     # Reset after test
     supplier.suppliers = list(supplier.seed_suppliers)
