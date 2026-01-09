@@ -1,12 +1,16 @@
 from fastapi import APIRouter, HTTPException
 from typing import List, Optional
 import subprocess
+import shlex
 from pydantic import BaseModel
 from app.models.delivery import Delivery
 from app.seed_data import deliveries as seed_deliveries
 
 router = APIRouter()
 deliveries = list(seed_deliveries)
+
+# Whitelist of allowed commands for security
+ALLOWED_COMMANDS = ['echo', 'notify', 'alert', 'ping']
 
 class StatusUpdate(BaseModel):
     status: str
@@ -37,19 +41,38 @@ async def update_delivery_status(id: int, status_update: StatusUpdate):
     delivery.status = status_update.status
     
     if status_update.notifyCommand:
-        try:
-            result = subprocess.run(
-                status_update.notifyCommand,
-                shell=True,
-                capture_output=True,
-                text=True
+        # Parse command safely using shlex
+        args = shlex.split(status_update.notifyCommand)
+        
+        if not args:
+            raise HTTPException(status_code=400, detail="Empty command provided")
+        
+        # Validate command against whitelist
+        command = args[0]
+        if command not in ALLOWED_COMMANDS:
+            raise HTTPException(
+                status_code=400, 
+                detail=f"Command '{command}' not allowed. Allowed commands: {', '.join(ALLOWED_COMMANDS)}"
             )
+        
+        try:
+            # Execute command securely without shell=True and with timeout
+            result = subprocess.run(
+                args,
+                capture_output=True,
+                text=True,
+                timeout=30
+            )
+            
             return {
                 "delivery": delivery,
-                "commandOutput": result.stdout
+                "commandOutput": result.stdout,
+                "commandError": result.stderr if result.stderr else None
             }
+        except subprocess.TimeoutExpired:
+            raise HTTPException(status_code=408, detail="Command execution timeout")
         except Exception as e:
-            raise HTTPException(status_code=500, detail=str(e))
+            raise HTTPException(status_code=500, detail=f"Command execution failed: {str(e)}")
     
     return {"delivery": delivery}
 
